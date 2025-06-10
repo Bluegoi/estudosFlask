@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename = 'style.css')}}">
+    <title>Document</title>
+</head>
+<body>
+    
+        <p>Nome : {{livroDetalhe.get_nome()}}</p>
+        <p>Cor: {{livroDetalhe.get_cor()}}</p>
+        <p>ID: {{livroDetalhe.get_id()}}</p>
+    
+
+    
+    <br>
+    <p>Leitores:</p>
+    {% for x in listaLeitores %}
+    <a href="{{x.get_nome()}}">
+            <img src="{{url_for('static', filename = x.get_foto())}}" alt="">
+            <p> {{x.get_nome()}}</p>
+            </a>
+    {% endfor %}
+    <a href="{{url_for('index')}}">voltar</a>
+</body>
+</html>
